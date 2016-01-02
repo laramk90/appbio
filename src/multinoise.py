@@ -10,9 +10,10 @@ for i in range(1,len(sys.argv)):
 	
 for record in align:
 	out = ''
+	id = ''
 	for i in k:
 		out += str(record.seq[i])
-	sys.stdout.write(out+'\n')
+	sys.stdout.write('>' + record.id + '\n' + out +'\n')
 	
 if len(k) > 0:	#show how many columns are removed from the alignment
 	sys.stderr.write(str(l)+' columns were removed from this alignment\n')
