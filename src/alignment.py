@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from Bio import AlignIO
 from collections import Counter
 import re
