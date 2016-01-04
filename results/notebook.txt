@@ -16,6 +16,7 @@ The aim is to assess the effect of noise reduction on multi sequence alignments 
 Decide on an organisational structure for the project. It seems logical to create new files for each date when new data is generated and commented on in this notebook. That way, it is easy to match the thought process with the actual results and how they were generated. The data directory will hold the provided alignments in one folder and the noise-reduced outputs in a separate folder. As the code is tested and fixed, more output files will be generated and it is best to keep them separate from each other and labelled with the dates so its possible to go back and fix what was going wrong. Another directory will be held for the source code and yet another for this notebook. The result directory should hold the statistical results from the comparison of reference tree to the inferred trees. The fastphylo package was installed. \
 \
 30.12.15\
+<<<<<<< HEAD:results/notebook.rtf
 Brendan pushed his code for the indels to GitHub and I adjusted it to fit the first two criteria the project description describes as noisy columns, thats more than 50% are indels and at least 50% of amino acids are unique. Three test files were created, called noisiest.fa with some noisy columns, cornercase.fa with no sequences at all and nonoise.fa with columns but no noise, to be stored in final/data/controls. Running the program with these controls has given the desired results with appropriate error messages written to stderr. The outputs returned are not on fasta format so that should be fixed so outputs can be used to infer trees directly. All outputs were saved to appbio/final/data/30_12_15\
 \
 1.12.15\
@@ -23,3 +24,6 @@ Created a new repository on GitHub where the project is organised as is suggeste
 \
 2.12.15 \
 Changed the code of src/multinoise.py so it returns output in fasta format. We\'b4re not sure if the second criteria is correctly set up in the code, wether noisy columns include more than 50% amino acids that only occur once or more than 50% unique amino acid groups. }
+=======
+Brendan pushed his code for the indels to GitHub and I adjusted it to fit the first two criteria the project description describes as noisy columns, thats more than 50% are indels and at least 50% of amino acids are unique. Three test files were created, called noisiest.fa with some noisy columns, cornercase.fa with no sequences at all and nonoise.fa with columns but no noise, to be stored in final/data/controls. Running the program with these controls has given the desired results with appropriate error messages written to stderr. The outputs returned are not on fasta format so that should be fixed so outputs can be used to infer trees directly. All outputs were saved to appbio/final/data/30_12_15}
+>>>>>>> origin/master:results/notebook.txt
