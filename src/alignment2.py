@@ -30,8 +30,17 @@ for i in range(0,len(align[0])):
     
 
 k = range(0,len(align[0]))
-
 k = list(set(k)-set(noisy))
+l = len(noisy)
+m = range(0,len(align[0]))
+
+
+if len(k) > 0:	#show how many columns are removed from the alignment
+	sys.stderr.write(str(l)+' columns were removed from this alignment\n')
+elif len(m) == 0: #error message when there is no record in the given alignment file
+	sys.stderr.write('Error: Empty file\n')
+elif len(k) == 0: #return a message if all columns are removed
+	sys.stderr.write('All columns were removed from this alignment\n')
 
 for record in align:
     out = ''
