@@ -40,10 +40,8 @@ A new script, compare_trees.py was created. It takes two tree files and compares
 \f0\fs24 \cf0 \cb1 \outl0\strokewidth0 \
 \
 6.1.16\
-Trees were inferred for the noise reduced files and stored in a new file appbio/data/trees/rednoise_trees. The file appbio/data/4_1_6 to appbio/data/rednoise_align should probably be renamed appbio/data/rednoise_align for clarity. Now trees have been inferred for all files and the only thing left to do is to compare them to the reference trees. A new control was created; allnosie.fa which results in all columns removed. \
-Report: Calculate average symmetric distance, percentage of 0\'b4s and standard deviation for each set. \
-Take together how many columns are removed on average (maybe a bar graph). \
-Create a table with the information. \
-\
-\
-}
+Trees were inferred for the noise reduced files and stored in a new file appbio/data/trees/rednoise_trees. The file appbio/data/4_1_6 to appbio/data/rednoise_align should probably be renamed appbio/data/rednoise_align for clarity. \
+Trees have been inferred and were compared to reference trees using the python script src/compare_trees.py\
+A new control was created; allnosie.fa which results in all columns removed. \
+We want to report on the different numbers of deleted columns in each alignment set, mean symmetric distance and percentage of inferred trees. \
+First, the output from compare_trees.py for each tree file, a number, was sent to a new file, and then we used cat to join the numbers in the files together in one file for each set, resulting in 12 files in total, stored in data/6_1_16 as symdist_\'85..txt. The same thing was done with the number of deleted columns in each alignment in each set, returning six files called *delcols.txt.}
