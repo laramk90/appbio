@@ -34,15 +34,17 @@ k = list(set(k)-set(noisy))
 l = len(noisy)
 m = range(0,len(align[0]))
 
+sys.stdout.write(str(l)+'\n') #return number of noisy columns
+
 
 if len(k) > 0:	#show how many columns are removed from the alignment
-	sys.stderr.write(str(l)+' columns were removed from this alignment\n')
+	sys.stderr.write(str(l))
 elif len(m) == 0: #error message when there is no record in the given alignment file
 	sys.stderr.write('Error: Empty file\n')
 elif len(k) == 0: #return a message if all columns are removed
 	sys.stderr.write('All columns were removed from this alignment\n')
 
-for record in align: #return output in fasta format
+for record in align: #return noise reduced output in fasta format
     out = ''
     for i in k:
         out += str(record.seq[i])
