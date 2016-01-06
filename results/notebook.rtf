@@ -25,9 +25,15 @@ Created a new repository on GitHub where the project is organised as is suggeste
 Changed the code of src/multinoise.py so it returns output in fasta format. We\'b4re not sure if the second criteria is correctly set up in the code, wether noisy columns include more than 50% amino acids that only occur once or more than 50% unique amino acid groups. \
 \
 4.1.16\
-Pushed alignment.py to GitHub appbio/src, which was used to noise reduce all the files, a mixture of mine and Brendan\'b4s work. Now \
+Pushed alignment.py to GitHub appbio/src, which was used to noise reduce all the files, a mixture of mine and Brendan\'b4s work. Noise-reduced files were generated from appbio/data/alignments/.. and stored in appbio/data/4_1_16. Noise reduction was performed for one set of alignments at a time (6 in total, 300 alignments in each file) using globbing (*.msl) in the command line. The resulting files end with .afa.\
+\
+5.1.16\
+Tried using the fastphylo package to infer trees but after some struggling to make it work the fasttree package was suggested instead. It was installed using the Homebrew program with the command \'93brew fasttree\'94 in bash. \
+The command used for the first set of alignments was:\
+for i in ~/appbio/data/alignments/asymmetric_0.5/*.msl; do FastTree $i > $i.tree; done\
+\
+All trees are now in a separate file under appbio/data/trees in the files reference_trees and trees_org which are trees from the original noisy alignments. I started trying out the dendropy module to compare the inferred trees to the reference trees but I had some trouble reading the reference trees. Still have to infer trees for the noise reduced files. \
 \
 6.1.16\
-\
-\
+Trees were inferred for the noise reduced files and stored in a new file appbio/data/trees/rednoise_trees. The file appbio/data/4_1_6 to appbio/data/rednoise_align should probably be renamed appbio/data/rednoise_align for clarity. \
 }
