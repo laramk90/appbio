@@ -52,4 +52,4 @@ for record in align:
         z = out[i:i+60]
         g.append(z)
     for n in g:
-        print n
+        sys.stdout.write(n)
