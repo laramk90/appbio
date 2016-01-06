@@ -42,7 +42,7 @@ elif len(m) == 0: #error message when there is no record in the given alignment 
 elif len(k) == 0: #return a message if all columns are removed
 	sys.stderr.write('All columns were removed from this alignment\n')
 
-for record in align:
+for record in align: #return output in fasta format
     out = ''
     for i in k:
         out += str(record.seq[i])
