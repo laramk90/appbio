@@ -28,8 +28,6 @@ for line in InFile:
 tree2 = dendropy.Tree.get(data=tree,schema='newick',taxon_namespace=tns) #original or noise reduced tree
 
 n = treecompare.symmetric_difference(tree1,tree2) #get a numerical value for symmetric difference
-#n = treecompare.weighted_robinson_foulds_distance(tree1, tree2)
-#print(treecompare.symmetric_difference(tree1,tree2))
 
 sys.stdout.write(str(n)+'\n')
 
