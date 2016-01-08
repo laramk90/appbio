@@ -16,7 +16,7 @@ for i in range(0,len(align[0])):
     # Condition 1 : there are more than 50% indels
     g = column.count('-')
     if g is not None:
-        if g/total >= 0.5:
+        if g/total > 0.5:
             noisy.append(i)
     # Condition 2 : at least 50% unique amino acids
     noindels = re.sub('[-]','',column)
@@ -25,13 +25,13 @@ for i in range(0,len(align[0])):
         noisy.append(i)
     # Condition 3 : no amino acid appears more than twice
     twice = [k for k, v in Counter(noindels).iteritems() if v > 2]
-    if twice is None:
+    if not twice:
         noisy.append(i)
     
-
-k = range(0,len(align[0]))
-k = list(set(k)-set(noisy))
-l = len(noisy)
+    
+k = range(0,len(align[0])) #numbers of all columns
+k = sorted(list(set(k)-set(noisy))) #column numbers that are not noisy
+l = len(set(noisy))
 m = range(0,len(align[0]))
 
 
