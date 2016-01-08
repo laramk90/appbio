@@ -35,11 +35,11 @@ l = len(noisy)
 m = range(0,len(align[0]))
 
 
-if len(k) > 0:	#show how many columns are removed from the alignment
+if len(k) > 0:	#show how many columns are removed from the alignment, write to standard error
 	sys.stderr.write(str(l)+'\n')
-elif len(m) == 0: #error message when there is no record in the given alignment file
+elif len(m) == 0: #error message when there is no record in the given alignment file, write to standard error
 	sys.stderr.write('Error: Empty file\n')
-elif len(k) == 0: #return a message if all columns are removed
+elif len(k) == 0: #return a message if all columns are removed, write to standard error
 	sys.stderr.write('All columns were removed from this alignment\n')
 
 for record in align: #return noise reduced output in fasta format

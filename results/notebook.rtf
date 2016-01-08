@@ -10,10 +10,10 @@ L\'e1ra Krist\'edn Stef\'e1nsd\'f3ttir: 901227-T343\
 Reducing noise in protein multialignments\
 \
 18.12.15\
-The aim is to assess the effect of noise reduction on multi sequence alignments by creating a program that cuts noisy columns out of the multisequence alignments provided. Those alignments are sequences that have been evolved through a so called reference tree which shows the true phylogeny of the aligned sequences. Trees for both the original and noise-reduced alignments will be inferred and the difference between those trees and the reference tree quantified using DendroPy. The final report should show clear statistics from which we deduce wether our noise reduction is useful in this sense. A working code was created to count and delete noisy columns from the provided data on the criteria that a noisy column has 50% indels. \
+A working code was created to count and delete noisy columns from the provided data on the criteria that a noisy column has 50% indels. \
 \
 29.12.15\
-Decide on an organisational structure for the project. It seems logical to create new files for each date when new data is generated and commented on in this notebook. That way, it is easy to match the thought process with the actual results and how they were generated. The data directory will hold the provided alignments in one folder and the noise-reduced outputs in a separate folder. As the code is tested and fixed, more output files will be generated and it is best to keep them separate from each other and labelled with the dates so its possible to go back and fix what was going wrong. Another directory will be held for the source code and yet another for this notebook. The result directory should hold the statistical results from the comparison of reference tree to the inferred trees. The fastphylo package was installed. \
+It seems logical to create new files for each date when new data is generated and commented on in this notebook. That way, it is easy to match the thought process with the actual results and how they were generated. The data directory will hold the provided alignments in one folder and the noise-reduced outputs in a separate folder. As the code is tested and fixed, more output files will be generated and it is best to keep them separate from each other and labelled with the dates so its possible to go back and fix what was going wrong. Another directory will be held for the source code and yet another for this notebook. The result directory should hold the statistical results from the comparison of reference tree to the inferred trees. The fastphylo package was installed. \
 \
 30.12.15\
 Brendan pushed his code for the indels to GitHub and I adjusted it to fit the first two criteria the project description describes as noisy columns, thats more than 50% are indels and at least 50% of amino acids are unique. Three test files were created, called noisiest.fa with some noisy columns, cornercase.fa with no sequences at all and nonoise.fa with columns but no noise, to be stored in final/data/controls. Running the program with these controls has given the desired results with appropriate error messages written to stderr. The outputs returned are not on fasta format so that should be fixed so outputs can be used to infer trees directly. All outputs were saved to appbio/final/data/30_12_15\
@@ -25,7 +25,7 @@ Created a new repository on GitHub where the project is organised as is suggeste
 Changed the code of src/multinoise.py so it returns output in fasta format. We\'b4re not sure if the second criteria is correctly set up in the code, wether noisy columns include more than 50% amino acids that only occur once or more than 50% unique amino acid groups. \
 \
 4.1.16\
-Pushed alignment2.py to GitHub appbio/src, which was used to noise reduce all the files, a mixture of mine and Brendan\'b4s work. Noise-reduced files were generated from appbio/data/alignments/.. and stored in appbio/data/4_1_16. Noise reduction was performed for one set of alignments at a time (6 in total, 300 alignments in each file) using globbing (*.msl) in the command line. The resulting files end with .afa.\
+Pushed the final noise reduction code, alignment2.py to GitHub appbio/src, which was used to noise reduce all the files, a mixture of mine and Brendan\'b4s work. Noise-reduced files were generated from appbio/data/alignments/.. and stored in appbio/data/4_1_16. Noise reduction was performed for one set of alignments at a time (6 in total, 300 alignments in each file) using globbing (*.msl) in the command line. The resulting files end with .afa.\
 \
 5.1.16\
 Tried using the fastphylo package to infer trees but after some struggling to make it work the fasttree package was suggested instead. It was installed using the Homebrew program with the command \'93brew fasttree\'94 in bash. \
@@ -40,14 +40,16 @@ A new script, compare_trees.py was created. It takes two tree files and compares
 \f0\fs24 \cf0 \cb1 \outl0\strokewidth0 \
 \
 6.1.16\
-Trees were inferred for the noise reduced files and stored in a new file appbio/data/trees/rednoise_trees. The file appbio/data/4_1_6 to appbio/data/rednoise_align should probably be renamed appbio/data/rednoise_align for clarity. \
+Trees were inferred for the noise reduced files and stored in a new file appbio/data/trees/rednoise_trees. The file appbio/data/4_1_6 was renamed appbio/data/rednoise_align for clarity. \
 Trees have been inferred and were compared to reference trees using the python script src/compare_trees.py\
 A new control was created; allnosie.fa which results in all columns removed. \
 We want to report on the different numbers of deleted columns in each alignment set, mean symmetric distance and percentage of inferred trees. \
 First, the output from compare_trees.py for each tree file, a number, was sent to a new file, and then we used cat to join the numbers in the files together in one file for each set, resulting in 12 files in total, stored in data/6_1_16 as symdist_\'85..txt. The same thing was done with the number of deleted columns in each alignment in each set, returning six files called *delcols.txt.\
+Next, these files were put through count.py to get the % of recovered trees from the symdist files and average number of columns from the delcols files.\
 \
 7.1.16\
 Going over and adding to the report on Google Docs. \
 \
 8.1.16\
+Control data for the second two criteria was created.\
 }
