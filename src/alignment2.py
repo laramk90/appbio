@@ -25,7 +25,7 @@ for i in range(0,len(align[0])):
         noisy.append(i)
     # Condition 3 : no amino acid appears more than twice
     twice = [k for k, v in Counter(noindels).iteritems() if v > 2]
-    if twice is None:
+    if not twice:
         noisy.append(i)
     
 
