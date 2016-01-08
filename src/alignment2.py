@@ -30,7 +30,7 @@ for i in range(0,len(align[0])):
     
 
 k = range(0,len(align[0]))
-k = list(set(k)-set(noisy))
+k = sorted(list(set(k)-set(noisy)))
 l = len(noisy)
 m = range(0,len(align[0]))
 
