@@ -28,10 +28,17 @@ for i in range(0,len(align[0])):
     if not twice:
         noisy.append(i)
     
+<<<<<<< HEAD
     
 k = range(0,len(align[0])) #numbers of all columns
 k = sorted(list(set(k)-set(noisy))) #column numbers that are not noisy
 l = len(set(noisy))
+=======
+
+k = range(0,len(align[0]))
+k = sorted(list(set(k)-set(noisy)))
+l = len(noisy)
+>>>>>>> origin/master
 m = range(0,len(align[0]))
 
 

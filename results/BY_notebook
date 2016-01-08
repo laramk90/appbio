@@ -3,3 +3,51 @@ KTH | DD2404 Applied Bioinformatics
 Project Name: Reducing noise in multialignments
 Project Date: 18/12/2015
 
+DATE: 18/12/2015
+ENTRY: This is the first entry marking the beginning of work on this bioinformatics project. Lara, Dennis, and I discussed briefly 
+
+DATE: 19/12/2015
+ENTRY: After consultation with Lara and Dennis, I adjusted the code in order to account for the unique amino acid condition for noise 
+
+consideration.
+
+DATE: 2/01/2016
+
+ENTRY: A number of key changes was made to the alignment code today after discussion of potential misunderstandings. It was realised 
+
+that the conditions for noise consideration were misinterpreted. If there were at least 50% unique amino acids means that the number of 
+
+amino acids that appear only once contribute to 50% of the total amino acids in the column. The initial method of grouping all different 
+
+amino acids together using the set() function of Python
+ however this would only group each amino acid (AA) into a unique set, and not 
+
+give the number of AAs that are unique. This was corrected by using the counter method from the Collections package, iterating through 
+
+each AA and finding those that only appear once.
+
+DATE: 4/01/2016
+
+ENTRY: We have successfully ran the noise reduction program and produced noise-reduced alignments for each dataset (6 directories in 
+
+total). Upon inspection of the alignments using a text editor, it could be seen that noise was removed according to the given 
+
+conditions. Furthermore, the alignments were checked using an online MUSCLE tool (http://www.ebi.ac.uk/Tools/msa/muscle/) to compare the 
+
+two coupled alignment with each other (HTML output). No noticeable errors were found in the alignments however further inspection will 
+
+be required in the next few days. The next step is to run each alignment through the FastPhylo package (fastdist & fnj) to produce 
+
+inferred trees, but currently we are having difficulty with installing the package (command not found: error). We have advised Lars and 
+
+hope to receive an answer shortly.
+
+DATE: 5/01/2016
+
+ENTRY: Following some initial difficulties with using the FastPhylo package, it was advised by Lars to use the FastTree program to infer 
+
+trees from the alignments. We have successfully created inferred trees using FastTree (.tree files) and then with the use of DendroPy and a short script, calculated the relevant statistics to determine the effectiveness of noise reduction. It was decided that the Robinson-Foulds distance (i.e. symmetric distance) would be used as the primary metric as it provides a simple way of viewing the similarities to the reference tree (with 0 being 'identical' in this case). 
+
+DATE: 6/01/2016
+
+ENTRY: Work begins on preparing the final report for the project.
