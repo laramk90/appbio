@@ -32,7 +32,7 @@ Tried using the fastphylo package to infer trees but after some struggling to ma
 The command used for the first set of alignments was:\
 for i in ~/appbio/data/alignments/asymmetric_0.5/*.msl; do FastTree $i > $i.tree; done\
 \
-All trees are now in a separate file under appbio/data/trees in the files reference_trees and trees_org which are trees from the original noisy alignments. I started trying out the dendropy module to compare the inferred trees to the reference trees but I had some trouble reading the reference trees. Still have to infer trees for the noise reduced files.\
+Reference trees and inferred trees for the noisy alignments are now in a separate file under appbio/data/trees in the files reference_trees and trees_org. I started trying out the dendropy module to compare the inferred trees to the reference trees but I had some trouble reading the reference trees. Still have to infer trees for the noise reduced files.\
 \
 A new script, compare_trees.py was created. It takes two tree files and compares them using the treecompare.symmetric_difference function in Dendropy.                                                                            
 \f1\fs22 \cf2 \cb3 \outl0\strokewidth0 \strokec2 \
@@ -40,7 +40,7 @@ A new script, compare_trees.py was created. It takes two tree files and compares
 \f0\fs24 \cf0 \cb1 \outl0\strokewidth0 \
 \
 6.1.16\
-Trees were inferred for the noise reduced files and stored in a new file appbio/data/trees/rednoise_trees. The file appbio/data/4_1_6 was renamed appbio/data/rednoise_align for clarity. \
+Trees were inferred for the noise reduced files and stored in a new file appbio/data/6_1_16. The file appbio/data/4_1_6 was renamed appbio/data/rednoise_align for clarity. \
 Trees have been inferred and were compared to reference trees using the python script src/compare_trees.py\
 A new control was created; allnosie.fa which results in all columns removed. \
 We want to report on the different numbers of deleted columns in each alignment set, mean symmetric distance and percentage of inferred trees. \
